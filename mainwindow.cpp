@@ -54,7 +54,7 @@ MainWindow::~MainWindow()
 void MainWindow::clickSaveButton(){
     if (activated){
         ui->listWidget->addItem(QString::fromStdString(std::to_string(numberOfMembers) +
-                                                       ". " + ui->XCoef1->text().toStdString() + "X + " +
+                                                       ".\n" + ui->XCoef1->text().toStdString() + "X + " +
                                                        ui->YCoef1->text().toStdString() + "Y + " +
                                                        ui->ZCoef1->text().toStdString() + "Z = " +
                                                        ui->Term1->text().toStdString() + '\n' +
@@ -66,7 +66,7 @@ void MainWindow::clickSaveButton(){
                                                        ui->YCoef3->text().toStdString() + "Y + " +
                                                        ui->ZCoef3->text().toStdString() + "Z = " +
                                                        ui->Term3->text().toStdString() + '\n' +
-                                                       "Ответ: " + ui->textBrowser->toPlainText().toStdString()));
+                                                       "Ответ: " + ui->textBrowser->text().toStdString()));
         QString str_coefs[3][3];
         QString str_terms[3];
         str_coefs[0][0] = ui->XCoef1->text();
@@ -81,7 +81,7 @@ void MainWindow::clickSaveButton(){
         str_terms[0] = ui->Term1->text();
         str_terms[1] = ui->Term2->text();
         str_terms[2] = ui->Term3->text();
-        history.push_back(linear_system(str_coefs, str_terms, ui->textBrowser->toPlainText()));
+        history.push_back(linear_system(str_coefs, str_terms, ui->textBrowser->text()));
         ++numberOfMembers;
     }
 }
